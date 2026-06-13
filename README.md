@@ -41,9 +41,9 @@ It uses Nexus's own public GraphQL API (the same one their website uses) with yo
    - [Violentmonkey](https://violentmonkey.github.io/) — Chrome / Firefox / Edge
 2. Install the script:
    - **From Greasy Fork** *(recommended, includes auto-updates)*: [Link](https://greasyfork.org/ru/scripts/582461)
-   - **From this repo**: open [`NexusMods_ModsPerPage.user.js`](./NexusModsPerPage.user.js) and your userscript manager will offer to install
+   - **From this repo**: open [`NexusModsPerPage.user.js`](./NexusModsPerPage.user.js) and your userscript manager will offer to install
 3. Visit any Nexus Mods listing, e.g. <https://www.nexusmods.com/games/skyrim/mods>
-4. Use the **«Per page: 20 ▾»** button next to the native sort/filter toolbar
+4. Use the **«MPP»** button next to the native sort/filter toolbar
 5. Your preferred size is remembered between sessions
 
 ## How it works
