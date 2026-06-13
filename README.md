@@ -40,7 +40,7 @@ It uses Nexus's own public GraphQL API (the same one their website uses) with yo
    - [Tampermonkey](https://www.tampermonkey.net/) — Chrome / Firefox / Edge / Opera / Safari (recommended)
    - [Violentmonkey](https://violentmonkey.github.io/) — Chrome / Firefox / Edge
 2. Install the script:
-   - **From Greasy Fork** *(recommended, includes auto-updates)*: <https://greasyfork.org/scripts/PLACEHOLDER-ID>
+   - **From Greasy Fork** *(recommended, includes auto-updates)*: [Link](https://greasyfork.org/ru/scripts/582461)
    - **From this repo**: open [`NexusMods_ModsPerPage.user.js`](./NexusModsPerPage.user.js) and your userscript manager will offer to install
 3. Visit any Nexus Mods listing, e.g. <https://www.nexusmods.com/games/skyrim/mods>
 4. Use the **«Per page: 20 ▾»** button next to the native sort/filter toolbar
