@@ -3,7 +3,7 @@
 > Userscript: load 20 / 40 / 60 / 80 / 100 mods per page on Nexus Mods, or use infinite scroll for the whole listing.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Greasy Fork](https://img.shields.io/badge/install-Greasy%20Fork-670000.svg)](https://greasyfork.org/scripts/<id>)
+[![Greasy Fork](https://img.shields.io/badge/install-Greasy%20Fork-670000.svg)](https://greasyfork.org/ru/scripts/582461)
 [![Userscript](https://img.shields.io/badge/userscript-tampermonkey-blue.svg)](https://www.tampermonkey.net/)
 
 Nexus Mods displays only 20 mods per page by default, which makes browsing large categories tedious. This userscript adds a clean dropdown to the native Nexus toolbar so you can pick **20 / 40 / 60 / 80 / 100** mods per page — or switch to **infinite scroll** for the whole listing.
@@ -12,9 +12,14 @@ It uses Nexus's own public GraphQL API (the same one their website uses) with yo
 
 ## Screenshots
 
-<!-- TODO: drop screenshots here -->
-<!-- ![Dropdown in toolbar](docs/dropdown.png) -->
-<!-- ![80 mods grid](docs/grid.png) -->
+### Toolbar
+![Per page dropdown](docs/toolbar.png)
+
+### 40 pagination
+![40 mods grid](docs/pagination-40.png)
+
+### 80 pagination
+![80 mods grid](docs/pagination-80.png)
 
 ## Features
 
@@ -36,7 +41,7 @@ It uses Nexus's own public GraphQL API (the same one their website uses) with yo
    - [Violentmonkey](https://violentmonkey.github.io/) — Chrome / Firefox / Edge
 2. Install the script:
    - **From Greasy Fork** *(recommended, includes auto-updates)*: <https://greasyfork.org/scripts/PLACEHOLDER-ID>
-   - **From this repo**: open [`NexusMods_ModsPerPage.user.js`](./NexusMods_ModsPerPage.user.js) and your userscript manager will offer to install
+   - **From this repo**: open [`NexusMods_ModsPerPage.user.js`](./NexusModsPerPage.user.js) and your userscript manager will offer to install
 3. Visit any Nexus Mods listing, e.g. <https://www.nexusmods.com/games/skyrim/mods>
 4. Use the **«Per page: 20 ▾»** button next to the native sort/filter toolbar
 5. Your preferred size is remembered between sessions
@@ -89,11 +94,11 @@ The script is a single self-contained `.user.js` file with no build step:
 
 # Syntax check
 
-node --check NexusMods_ModsPerPage.user.js
+node --check NexusModsPerPage.user.js
 
 # Lint (optional)
 
-npx eslint NexusMods_ModsPerPage.user.js
+npx eslint NexusModsPerPage.user.js
 
 ```
 
@@ -103,7 +108,7 @@ Pull requests welcome — for non-trivial changes please open an issue first.
 
 ```
 
-NexusMods_ModsPerPage.user.js   ← the script (drop into Tampermonkey)
+NexusModsPerPage.user.js   ← the script (drop into Tampermonkey)
 
 [README.md](http://README.md)                        ← this file
 
