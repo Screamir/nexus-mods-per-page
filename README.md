@@ -134,7 +134,7 @@ A: Yes. Nexus's ads (Playwire Ramp) are unrelated to the mods API. You may see h
 
 ## License
 
-[MIT](LICENSE) © Steven (LIME)
+[MIT](LICENSE) © Screamir
 
 ## Disclaimer
 
