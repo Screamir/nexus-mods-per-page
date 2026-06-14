@@ -2,7 +2,7 @@
 // @name         Nexus's Mods Per Page
 // @namespace    https://github.com/Screamir/nexus-mods-per-page
 // @homepageURL  https://github.com/Screamir/nexus-mods-per-page
-// @version      1.0
+// @version      1.1
 // @description  Load 40/60/80/100 mods on one page or use infinite scroll for the whole listing via Nexus Mods GraphQL. MPP button is injected into the native Nexus toolbar.
 // @author       Screamir
 // @match        https://www.nexusmods.com/games/*/mods*
@@ -10,14 +10,14 @@
 // @run-at       document-idle
 // @grant        none
 // @noframes
-// @updateURL    https://update.greasyfork.org/scripts/582461/Nexus%27s%20Mods%20Per%20Page.meta.js
-// @downloadURL  https://update.greasyfork.org/scripts/582461/Nexus%27s%20Mods%20Per%20Page.meta.js
 // @supportURL   https://github.com/Screamir/nexus-mods-per-page/issues
 // @license      MIT
 // @compatible   firefox
 // @compatible   chrome
 // @compatible   edge
 // @compatible   safari
+// @downloadURL https://update.greasyfork.org/scripts/582461/Nexus%27s%20Mods%20Per%20Page.user.js
+// @updateURL https://update.greasyfork.org/scripts/582461/Nexus%27s%20Mods%20Per%20Page.meta.js
 // ==/UserScript==
 //
 // === Privacy / Adblock notes ===
@@ -30,6 +30,7 @@
 //     prefix — no element ids match generic ad selectors.
 //   * Tested with uBlock Origin and AdGuard with default + Annoyances
 //     filter lists enabled. No conflicts.
+
 
 (function () {
   'use strict'
@@ -1214,6 +1215,14 @@ fragment ModTileFragment on Mod {
     // Синхронизация здесь покрывает кейс, когда URL ниже не меняется.
     lastPathKey = pathKey()
     refreshUI()
+    // Синхронно перерисовываем пагинацию под новый размер. Без этого
+    // переход X→All оставляет старую кастомную пагинацию (от size=60 и т.п.)
+    // в DOM на всё время infinite-сессии, и её кнопки выглядят живыми, но
+    // navigateToUserPage() при targetSize==='all' молча выходит — «некликабельны».
+    // Также покрывает 20→All: иначе нативный nav не скрывается.
+    // В expandTo() ветка isInfinite уходит через return до финального rebuildPagination,
+    // так что вызываем его здесь сами.
+    rebuildPagination()
 
     // При уходе из infinite — снимаем observer
     if (prev === 'all') teardownInfiniteScroll()
