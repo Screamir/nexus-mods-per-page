@@ -1,11 +1,10 @@
 // ==UserScript==
 // @name         Nexus's Mods Per Page
 // @namespace    https://github.com/Screamir/nexus-mods-per-page
-// @homepageURL  https://github.com/Screamir/nexus-mods-per-page
-// @version      1.1
-// @description  Load 40/60/80/100 mods on one page or use infinite scroll for the whole listing via Nexus Mods GraphQL. MPP button is injected into the native Nexus toolbar.
+// @version      1.2
+// @description  Load 40/60/80/100 mods on one page or use infinite scroll for the whole listing via Nexus Mods GraphQL. Installable in parallel with stable.
 // @author       Screamir
-// @match        https://www.nexusmods.com/games/*/mods*
+// @match        https://www.nexusmods.com/games/*
 // @match        https://www.nexusmods.com/mods*
 // @run-at       document-idle
 // @grant        none
@@ -30,7 +29,6 @@
 //     prefix — no element ids match generic ad selectors.
 //   * Tested with uBlock Origin and AdGuard with default + Annoyances
 //     filter lists enabled. No conflicts.
-
 
 (function () {
   'use strict'
@@ -234,7 +232,7 @@
       doneTarget: '完了：{total} 件中 {loaded} 件',
       totalAll: '合計 {total} MOD',
       error: 'エラー：{msg}',
-      errLoad: '読み込みエラー：{msg}。再試����するには下にスクロールしてください。',
+      errLoad: '読み込みエラー：{msg}。再試������するには下にスクロールしてください。',
       infinite: '無限スクロール：{have} / {total}',
       perPage: '1ページ {n} 件',
       allInfinite: 'すべて（無限スクロール）',
@@ -1119,7 +1117,7 @@ fragment ModTileFragment on Mod {
     if (!isModsListPage()) return
     if (document.getElementById('nmpp-wrap')) return
     const toolbar = findNativeToolbar()
-    if (!toolbar) return // тулбар ещё н�� появился — ждём следующий тик MutationObserver
+    if (!toolbar) return // тулб��р ещё н�� появился — ждём следующий тик MutationObserver
     // бывшая фиксированная панель — выносим на всякий случай, если осталась от старых версий
     const floating = document.getElementById('lime-pgsize-panel')
     if (floating) floating.remove()
